@@ -1,10 +1,6 @@
 import allure
-from constants import DEFAULT_WAIT_TIME
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from pages.home_page import HomePage
 from pages.qa_page import QualityAssurancePage
-from selenium.webdriver.support import expected_conditions as ec
 
 
 @allure.title("Open Home Page")
@@ -49,8 +45,5 @@ def test_filter_qa_jobs(driver):
     with allure.step("Open a Position"):
         qa_page.open_position()
         qa_page.driver.switch_to.window(qa_page.driver.window_handles[1])
-        apply_for_job_button_present = ec.visibility_of_element_located(
-            (By.XPATH, '//a[contains(text(), "Apply for this '
-                       'job")]'))
-        WebDriverWait(driver, DEFAULT_WAIT_TIME).until(apply_for_job_button_present)
+        qa_page.wait_for_position_page_opened()
         assert qa_page.is_position_page_opened()
