@@ -16,3 +16,5 @@ Instruction to create Allure Report
          pytest tests/test_userinsider.py  --alluredir=reportallure
          allure serve reportallure
 2. Allure Report should be opened!
+![image](https://github.com/Marie1360/UserInsiderTest/assets/61519117/29b99ace-8fc4-417f-a425-fb22d00faeeb)
+
